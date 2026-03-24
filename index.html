@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Britze — Agrofood Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow:  #E8E3D5;
+  --blue:    #111111;
+  --blue-md: #888880;
+  --blue-lt: #C8C3B5;
+  --cream:   #F0EBE0;
+  --ink:     #0E0D0B;
+  --sand:    #E4DED2;
+  --white:   #FAF7F2;
+  --muted:   #6A6760;
+  --fb: 'DM Sans', sans-serif;
+  --fm: 'DM Mono', monospace;
+  --fd: 'Bebas Neue', sans-serif;
+  --fi: 'Playfair Display', serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 40px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.45s}
+
+/* ── HERO ── */
+.hero{background:var(--ink);padding:80px 0 0;position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column;justify-content:space-between}
+.hero-top{padding-bottom:60px}
+.hero-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:64px;opacity:0;animation:fu .6s ease forwards .05s}
+.hero-meta-left{font-family:var(--fm);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--blue-md)}
+.hero-meta-right{font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-md)}
+
+.hero h1{font-family:var(--fd);font-size:clamp(80px,14vw,180px);line-height:.9;letter-spacing:.01em;color:var(--sand);text-transform:uppercase;margin-bottom:0;opacity:0;animation:fu .7s ease forwards .15s}
+.hero h1 .accent{color:var(--yellow);display:block}
+.hero h1 .outline{-webkit-text-stroke:2px var(--sand);color:transparent;display:block}
+
+.hero-sub{display:flex;align-items:flex-end;justify-content:space-between;padding:40px 0 56px;border-top:1px solid rgba(232,227,213,.15);margin-top:32px;opacity:0;animation:fu .7s ease forwards .35s;gap:40px;flex-wrap:wrap}
+.hero-desc{font-size:17px;color:var(--blue-md);max-width:460px;line-height:1.7;font-weight:300}
+.hero-desc em{color:var(--cream);font-style:normal;font-weight:500}
+.hero-cta-wrap{display:flex;gap:12px;flex-shrink:0}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-family:var(--fb);font-size:14px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:transform .18s,box-shadow .18s,background .18s;letter-spacing:.02em}
+.btn:hover{transform:translateY(-2px)}
+.btn-y{background:var(--cream);color:var(--ink);box-shadow:0 4px 24px rgba(14,13,11,.15)}
+.btn-y:hover{background:var(--white);box-shadow:0 8px 36px rgba(14,13,11,.25)}
+.btn-ghost{background:transparent;color:var(--sand);border:1.5px solid rgba(232,227,213,.3)}
+.btn-ghost:hover{border-color:var(--cream);color:var(--cream)}
+.btn-blue{background:var(--cream);color:var(--ink);box-shadow:0 4px 20px rgba(14,13,11,.15)}
+.btn-blue:hover{background:var(--white);box-shadow:0 8px 32px rgba(14,13,11,.25)}
+.btn-outline-blue{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn-outline-blue:hover{background:var(--ink);color:var(--cream)}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cream);opacity:0;animation:fu .6s ease forwards .5s}
+.stat{padding:28px 32px;border-right:2px solid rgba(14,13,11,.1);position:relative}
+.stat:last-child{border-right:none;background:var(--ink)}
+.snum{font-family:var(--fd);font-size:42px;letter-spacing:.02em;display:block;line-height:1;margin-bottom:4px;color:var(--ink)}
+.stat:last-child .snum{color:var(--cream)}
+.slbl{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(14,13,11,.5);line-height:1.5}
+.stat:last-child .slbl{color:var(--blue-lt)}
+
+/* ── PROBLEM ── */
+.problem{background:var(--blue);padding:96px 0}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.problem-heading{font-family:var(--fd);font-size:clamp(48px,7vw,96px);line-height:.92;letter-spacing:.02em;color:var(--white);text-transform:uppercase;margin-bottom:24px}
+.problem-heading span{color:var(--yellow);display:block}
+.problem-sub{font-family:var(--fm);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--blue-md);margin-bottom:48px}
+.plist{list-style:none;display:flex;flex-direction:column;gap:0}
+.plist li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);color:var(--blue-lt);font-size:15px;line-height:1.6;transition:color .2s}
+.plist li:first-child{border-top:1px solid rgba(255,255,255,.1)}
+.plist li:hover{color:var(--white)}
+.plist li .num{font-family:var(--fd);font-size:22px;color:var(--yellow);flex-shrink:0;line-height:1.2}
+
+/* ── SECTION HEADER ── */
+.sh{margin-bottom:64px}
+.sh.center{text-align:center}
+.sh .label{font-family:var(--fm);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:block}
+.sh.dark .label{color:var(--yellow)}
+.sh h2{font-family:var(--fd);font-size:clamp(44px,6vw,80px);line-height:.93;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.sh.dark h2{color:var(--white)}
+.sh p{font-size:16px;color:var(--muted);max-width:480px;margin-top:16px;font-weight:300;line-height:1.7}
+.sh.center p{margin-left:auto;margin-right:auto}
+.sh.dark p{color:var(--blue-md)}
+
+/* ── TRACKS ── */
+.tracks{padding:96px 0;background:var(--cream)}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+.tc{overflow:hidden;transition:transform .3s}
+.tc:hover{transform:scale(1.01);z-index:2}
+.tch{padding:32px 32px 24px;border-bottom:2px solid rgba(10,8,32,.08)}
+.tcb{padding:24px 32px 32px}
+.td2c{background:var(--white)}
+.tb2b{background:var(--ink)}
+.track-label{font-family:var(--fm);font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:14px;display:block}
+.td2c .track-label{color:var(--blue)}
+.tb2b .track-label{color:var(--yellow)}
+.ttitle{font-family:var(--fd);font-size:clamp(28px,3vw,42px);line-height:.95;letter-spacing:.02em;text-transform:uppercase;margin-bottom:8px}
+.td2c .ttitle{color:var(--ink)}
+.tb2b .ttitle{color:var(--white)}
+.tsub{font-size:13px;font-style:italic;color:var(--muted)}
+.tb2b .tsub{color:var(--blue-md)}
+.tsteps{list-style:none;display:flex;flex-direction:column;gap:0}
+.tstep{display:flex;gap:16px;align-items:flex-start;padding:16px 0;transition:background .2s}
+.td2c .tstep{border-bottom:1px solid rgba(10,8,32,.06)}
+.tb2b .tstep{border-bottom:1px solid rgba(255,255,255,.06)}
+.tstep:last-child{border-bottom:none}
+.step-num{font-family:var(--fd);font-size:20px;color:var(--blue);flex-shrink:0;line-height:1.3;width:28px}
+.tb2b .step-num{color:var(--yellow)}
+.sname{font-family:var(--fb);font-size:13px;font-weight:700;margin-bottom:3px}
+.td2c .sname{color:var(--ink)}
+.tb2b .sname{color:var(--white)}
+.sdesc{font-size:13px;line-height:1.5;color:var(--muted)}
+.tb2b .sdesc{color:var(--blue-md)}
+.schip{display:inline-block;font-family:var(--fm);font-size:9px;letter-spacing:.12em;padding:2px 8px;margin-top:4px;text-transform:uppercase}
+.td2c .schip{background:var(--blue);color:var(--yellow)}
+.tb2b .schip{background:var(--yellow);color:var(--ink)}
+
+.cbar{background:var(--blue);padding:32px 40px;display:flex;align-items:center;gap:24px}
+.cbar .ci{font-size:28px;flex-shrink:0}
+.cbar p{color:var(--blue-lt);font-size:15px;line-height:1.65}
+.cbar strong{color:var(--yellow);font-family:var(--fb);font-weight:700}
+
+/* ── PROCESS ── */
+.process{padding:96px 0;background:var(--sand)}
+.psteps{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.pstep{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:flex-start;padding:32px 0;border-bottom:1px solid rgba(10,8,32,.1);cursor:default;transition:background .2s}
+.pstep:first-child{border-top:1px solid rgba(10,8,32,.1)}
+.pstep:hover{background:rgba(51,0,255,.03);padding-left:12px;padding-right:12px;margin:0 -12px}
+.pnum{font-family:var(--fd);font-size:52px;color:rgba(10,8,32,.12);line-height:1;transition:color .25s}
+.pstep:hover .pnum{color:var(--blue)}
+.pcontent h3{font-family:var(--fb);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px;transition:color .2s}
+.pstep:hover .pcontent h3{color:var(--blue)}
+.pcontent p{font-size:15px;color:var(--muted);line-height:1.7}
+
+/* ── VIDEO ── */
+.vsec{padding:96px 0;background:var(--ink)}
+.vwrap{position:relative;max-width:860px;margin:0 auto;cursor:pointer;aspect-ratio:16/9;overflow:hidden}
+.vwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s,filter .4s;filter:grayscale(20%)}
+.vwrap:hover img{transform:scale(1.02);filter:grayscale(0%)}
+.voverlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:linear-gradient(to top,rgba(10,8,32,.8) 0%,rgba(10,8,32,.2) 60%,transparent 100%);transition:background .3s}
+.vwrap:hover .voverlay{background:linear-gradient(to top,rgba(10,8,32,.9) 0%,rgba(10,8,32,.4) 100%)}
+.playbtn{width:80px;height:80px;background:var(--cream);display:flex;align-items:center;justify-content:center;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 32px rgba(232,227,213,.25)}
+.vwrap:hover .playbtn{transform:scale(1.08);box-shadow:0 16px 52px rgba(232,227,213,.4)}
+.playbtn svg{width:30px;height:30px;fill:var(--ink);margin-left:5px}
+.vlbl{font-family:var(--fd);font-size:18px;letter-spacing:.08em;color:var(--cream);text-transform:uppercase}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* ── PRICING ── */
+.pricing{padding:96px 0;background:var(--cream)}
+.pgridp{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px}
+.pc{padding:36px 32px;background:var(--white);transition:transform .3s}
+.pc:hover{transform:translateY(-4px);z-index:2;box-shadow:0 20px 60px rgba(51,0,255,.12)}
+.pc.feat{background:var(--blue)}
+.pbadge{display:inline-block;font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;background:var(--cream);color:var(--ink);padding:3px 10px;margin-bottom:16px}
+.pname{font-family:var(--fm);font-size:10px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:14px}
+.pc:not(.feat) .pname{color:var(--blue)}
+.pc.feat .pname{color:var(--blue-lt)}
+.pamt{font-family:var(--fd);font-size:58px;line-height:.9;letter-spacing:.01em;margin-bottom:4px}
+.pc:not(.feat) .pamt{color:var(--ink)}
+.pc.feat .pamt{color:var(--yellow)}
+.pper{font-family:var(--fm);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+.pc:not(.feat) .pper{color:var(--muted)}
+.pc.feat .pper{color:var(--blue-md)}
+.pdesc{font-size:14px;line-height:1.6;margin-bottom:20px;padding-bottom:20px}
+.pc:not(.feat) .pdesc{color:var(--muted);border-bottom:1px solid rgba(10,8,32,.08)}
+.pc.feat .pdesc{color:var(--blue-lt);border-bottom:1px solid rgba(255,255,255,.12)}
+.pfeats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.pfeats li{display:flex;gap:10px;font-size:14px;line-height:1.4}
+.pc:not(.feat) .pfeats li{color:var(--ink)}
+.pc.feat .pfeats li{color:var(--blue-lt)}
+.pfeats li::before{content:'→';font-weight:700;flex-shrink:0}
+.pc:not(.feat) .pfeats li::before{color:var(--blue)}
+.pc.feat .pfeats li::before{color:var(--yellow)}
+.paddon{background:var(--ink);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;transition:background .2s;border-top:2px solid rgba(232,227,213,.1)}
+.paddon:hover{background:#1A1915}
+.paddon h4{font-family:var(--fd);font-size:26px;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:4px}
+.paddon p{font-size:13px;color:var(--blue-md)}
+.aamt{font-family:var(--fd);font-size:42px;letter-spacing:.02em;color:var(--cream);white-space:nowrap}
+.aamt span{font-size:14px;color:var(--blue-md);font-family:var(--fm);letter-spacing:.1em}
+
+/* ── FAQ ── */
+.faq{padding:96px 0;background:var(--sand)}
+.flist{max-width:760px;margin:0 auto}
+.fi{border-bottom:1px solid rgba(10,8,32,.1);overflow:hidden}
+.fi:first-child{border-top:1px solid rgba(10,8,32,.1)}
+.fq{display:flex;align-items:center;justify-content:space-between;padding:22px 0;cursor:pointer;gap:24px;user-select:none;transition:color .2s}
+.fq:hover{color:var(--blue)}
+.fq span{font-family:var(--fb);font-size:15px;font-weight:600;line-height:1.4;color:inherit}
+.ficon{font-family:var(--fd);font-size:22px;color:var(--blue);transition:transform .3s;flex-shrink:0}
+.fi.open .ficon{transform:rotate(45deg);color:var(--blue)}
+.fans{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0}
+.fi.open .fans{max-height:300px;padding:0 0 20px}
+.fans p{font-size:15px;color:var(--muted);line-height:1.7}
+
+/* ── CTA ── */
+.cta{background:var(--ink);padding:96px 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap}
+.cta h2{font-family:var(--fd);font-size:clamp(52px,8vw,108px);line-height:.9;letter-spacing:.02em;text-transform:uppercase;color:var(--cream)}
+.cta-right p{font-size:17px;color:var(--blue-md);max-width:340px;margin-bottom:28px;font-weight:300;line-height:1.7}
+
+/* ── FOOTER ── */
+.foot{background:var(--ink);padding:40px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-name{font-family:var(--fd);font-size:28px;letter-spacing:.04em;color:var(--sand);text-transform:uppercase}
+.foot-meta{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-md);line-height:2;text-align:right}
+
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .tgrid,.pgridp,.pgrid{grid-template-columns:1fr}
+  .hstats{grid-template-columns:1fr 1fr}
+  .paddon,.cta-inner,.foot-inner{flex-direction:column}
+  .cta h2{font-size:clamp(48px,14vw,80px)}
+  .hero h1{font-size:clamp(60px,18vw,120px)}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-top">
+    <div class="hero-meta">
+      <span class="hero-meta-left">🐌 Maria Britze · Bologna, Italy</span>
+      <span class="hero-meta-right">Agrofood Marketing · Est. 2025</span>
+    </div>
+    <h1>
+      <span>Digital</span>
+      <span class="accent">Word-of-</span>
+      <span class="outline">Mouth</span>
+    </h1>
+    <div class="hero-sub">
+      <p class="hero-desc">I help slow food producers, artisan brands, and agrofood founders get found by the importers, distributors, and consumers who are <em>already looking</em> for what you make.</p>
+      <div class="hero-cta-wrap">
+        <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-y">☕ Book a free call</a>
+        <a href="#process" class="btn btn-ghost">How it works</a>
+      </div>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><span class="snum">€814K+</span><span class="slbl">Email revenue generated<br>for a bio retailer</span></div>
+    <div class="stat"><span class="snum">+100%</span><span class="slbl">Channel revenue growth<br>via email campaigns</span></div>
+    <div class="stat"><span class="snum">10+</span><span class="slbl">Years in B2B<br>marketing</span></div>
+    <div class="stat"><span class="snum">0</span><span class="slbl">Direct competitors<br>in this niche 😏</span></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="pgrid">
+      <div class="reveal">
+        <p class="problem-sub">Sound familiar?</p>
+        <h2 class="problem-heading">You make<br><span>extraordinary</span>things.</h2>
+        <p style="font-size:16px;color:var(--blue-md);font-weight:300;line-height:1.7">Nobody online knows it yet. Here's what I hear every week from agrofood founders.</p>
+      </div>
+      <ul class="plist reveal d2">
+        <li><span class="num">01</span>You spend thousands on a fair stand and come home with a bag of business cards and no follow-up plan</li>
+        <li><span class="num">02</span>You meet great buyers in person but can't stay in front of them afterwards</li>
+        <li><span class="num">03</span>The right importers and distributors are out there — but they can't find you</li>
+        <li><span class="num">04</span>Your product quality is exceptional. Your online presence isn't.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks">
+  <div class="container">
+    <div class="sh reveal">
+      <span class="label">The System</span>
+      <h2>Two tracks.<br>One model.</h2>
+      <p>Built for agrofood founders who need both direct sales and trade relationships to grow.</p>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px">
+    <div class="tgrid">
+      <div class="tc td2c reveal">
+        <div class="tch">
+          <span class="track-label">D2C · Direct to Consumer</span>
+          <h3 class="ttitle">Email as your<br>revenue engine</h3>
+          <p class="tsub">For brands selling direct to conscious consumers</p>
+        </div>
+        <div class="tcb">
+          <ul class="tsteps">
+            <li class="tstep"><span class="step-num">01</span><div><div class="sname">Welcome Sequence</div><p class="sdesc">Brand story, values, why you exist — converts first-time subscribers into believers</p><span class="schip">automation</span></div></li>
+            <li class="tstep"><span class="step-num">02</span><div><div class="sname">Weekly &amp; Seasonal Campaigns</div><p class="sdesc">Harvest news, recipes, product stories — content that sells without selling</p><span class="schip">campaigns</span></div></li>
+            <li class="tstep"><span class="step-num">03</span><div><div class="sname">Lifecycle Automations</div><p class="sdesc">Reactivation, repeat purchase, referral — runs while you're in the field</p><span class="schip">revenue loops</span></div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tc tb2b reveal d2">
+        <div class="tch">
+          <span class="track-label">B2B · Trade &amp; Wholesale</span>
+          <h3 class="ttitle">LinkedIn as your<br>commercial presence</h3>
+          <p class="tsub">For founders reaching importers, buyers &amp; investors</p>
+        </div>
+        <div class="tcb">
+          <ul class="tsteps">
+            <li class="tstep"><span class="step-num">01</span><div><div class="sname">LinkedIn · 3× per week</div><p class="sdesc">Founder-led content that builds authority with the people who make purchasing decisions</p><span class="schip">ghostwriting</span></div></li>
+            <li class="tstep"><span class="step-num">02</span><div><div class="sname">Trade Newsletter · 1× per week</div><p class="sdesc">A direct line to B2B contacts — positioning, launches, industry point of view</p><span class="schip">email</span></div></li>
+            <li class="tstep"><span class="step-num">03</span><div><div class="sname">100 Outreach Touches / week</div><p class="sdesc">Warm, personal connections to importers, distributors, and relevant founders</p><span class="schip">network building</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="cbar reveal">
+      <span class="ci">🔗</span>
+      <p><strong>The tracks connect.</strong> A B2B buyer discovers you on LinkedIn and orders from your webshop. A D2C customer with a restaurant recommends you to their importer. Visibility compounds across both worlds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="sh reveal">
+      <span class="label">Our Process</span>
+      <h2>How we<br>work together</h2>
+      <p>Simple, honest, no agency theatre. A clear system that gets built and then runs.</p>
+    </div>
+    <div class="psteps">
+      <div class="pstep reveal"><div class="pnum">01</div><div class="pcontent"><h3>Coffee Call &amp; Discovery</h3><p>15 minutes. No pitch, no deck. I ask questions about your brand, your fair schedule, your current marketing, and where you want to go.</p></div></div>
+      <div class="pstep reveal d1"><div class="pnum">02</div><div class="pcontent"><h3>Strategy &amp; Positioning</h3><p>I map your visibility model — channels, audiences, messages. You get a clear roadmap before a single euro is spent.</p></div></div>
+      <div class="pstep reveal d2"><div class="pnum">03</div><div class="pcontent"><h3>Build &amp; Implementation</h3><p>I set up the infrastructure, write the first content or campaigns, and get the system live — built to match your voice, not a template.</p></div></div>
+      <div class="pstep reveal d3"><div class="pnum">04</div><div class="pcontent"><h3>Review &amp; Feedback</h3><p>You read everything before it goes out. One round of revisions included. Your voice stays yours.</p></div></div>
+      <div class="pstep reveal d4"><div class="pnum">05</div><div class="pcontent"><h3>Launch &amp; Optimise</h3><p>We go live, track what's working, and adjust. The system sharpens over time — especially after each fair adds new contacts.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="vsec">
+  <div class="container">
+    <div class="sh dark center reveal" style="margin-bottom:48px">
+      <span class="label">Watch</span>
+      <h2 style="font-family:var(--fd);font-size:clamp(44px,6vw,80px);line-height:.93;letter-spacing:.02em;text-transform:uppercase;color:var(--white)">See the system<br>in action</h2>
+      <p>How agrofood brands turn fair visitors into long-term customers.</p>
+    </div>
+    <div class="vwrap reveal" id="vwrap" onclick="loadVid()">
+      <img src="https://img.youtube.com/vi/Pq6ccYjXwnk/maxresdefault.jpg" alt="Video preview">
+      <div class="voverlay">
+        <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <span class="vlbl">Watch the breakdown</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sh reveal">
+      <span class="label">Pricing</span>
+      <h2>Choose your<br>entry point</h2>
+      <p>Start with what fits. Add on as you grow.</p>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px">
+    <div class="pgridp">
+      <div class="pc reveal">
+        <p class="pname">LinkedIn Presence</p>
+        <div class="pamt">€1,000</div>
+        <p class="pper">/ month</p>
+        <p class="pdesc">Your founder voice on LinkedIn, consistently. 3 posts per week building authority with buyers and distributors.</p>
+        <ul class="pfeats">
+          <li>3 LinkedIn posts per week</li>
+          <li>Profile optimisation (once)</li>
+          <li>Monthly content strategy call</li>
+          <li>One revision round per post</li>
+          <li>Monthly performance review</li>
+        </ul>
+        <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-outline-blue" style="width:100%;justify-content:center;">Book a call ☕</a>
+      </div>
+      <div class="pc feat reveal d2">
+        <div class="pbadge">Most popular</div>
+        <p class="pname">LinkedIn + Newsletter</p>
+        <div class="pamt">€2,000</div>
+        <p class="pper">/ month</p>
+        <p class="pdesc">The full B2B visibility track. LinkedIn builds the presence, the newsletter keeps your trade contacts warm.</p>
+        <ul class="pfeats">
+          <li>Everything in LinkedIn Presence</li>
+          <li>1 trade newsletter per week</li>
+          <li>Email platform setup if needed</li>
+          <li>Audience segmentation (D2C / B2B)</li>
+          <li>Bi-weekly strategy call</li>
+          <li>Fair follow-up email sequence</li>
+        </ul>
+        <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-y" style="width:100%;justify-content:center;">Book a call ☕</a>
+      </div>
+      <div class="pc reveal d3">
+        <p class="pname">Custom Roadmap</p>
+        <div class="pamt" style="font-size:40px;padding-top:8px">Let's talk</div>
+        <p class="pper">custom scope</p>
+        <p class="pdesc">Full system built from scratch — fair strategy, both tracks, email infrastructure, ongoing consulting.</p>
+        <ul class="pfeats">
+          <li>Full marketing audit</li>
+          <li>D2C + B2B track build</li>
+          <li>Custom channel strategy</li>
+          <li>Weekly 1:1 strategy calls</li>
+          <li>Fair-to-digital system design</li>
+          <li>Reporting &amp; optimisation</li>
+        </ul>
+        <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-outline-blue" style="width:100%;justify-content:center;">Book a call ☕</a>
+      </div>
+    </div>
+    <div class="paddon reveal">
+      <div>
+        <h4>Add-on: Lifecycle Automations &amp; Welcome Sequence</h4>
+        <p>A fully built email automation stack — welcome flow, fair follow-up, repeat purchase, reactivation. One-time build, runs forever.</p>
+      </div>
+      <div><div class="aamt">€2,500 <span>once-off</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="sh reveal">
+      <span class="label">FAQ</span>
+      <h2>Common<br>questions</h2>
+    </div>
+    <div class="flist reveal">
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>Do I need to already be on LinkedIn?</span><div class="ficon">+</div></div><div class="fans"><p>No. Profile setup and positioning are included in every package. We build from scratch if we need to.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>How do you write in my voice if you don't know me?</span><div class="ficon">+</div></div><div class="fans"><p>We start with a deep onboarding call — your story, values, how you talk about your product. The first month is calibration. By month two, most clients say it sounds exactly like them.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>How long before I see results?</span><div class="ficon">+</div></div><div class="fans"><p>Inbound inquiries typically appear in weeks 6–10 on LinkedIn. Email revenue impact is faster — especially fair follow-up sequences. This is a compounding system, not an instant fix.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>Do I need to commit for several months?</span><div class="ficon">+</div></div><div class="fans"><p>Retainers run on 3-month minimum commitments. The once-off automation build is a single project with no ongoing commitment.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>Do you work with brands outside Italy?</span><div class="ficon">+</div></div><div class="fans"><p>Yes. I work remotely with agrofood brands across Europe. I attend key European fairs, so I understand the landscape wherever you are.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>What email platform do you use?</span><div class="ficon">+</div></div><div class="fans"><p>I'm an official Omnisend partner. If you're already on another platform we can discuss compatibility.</p></div></div>
+      <div class="fi"><div class="fq" onclick="tFaq(this)"><span>I only do fairs a few times a year. Is this still worth it?</span><div class="ficon">+</div></div><div class="fans"><p>Fairs are the ignition point. The real value is what happens between fairs — staying visible, being findable when someone who met you six months ago finally has budget.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Book a<br>free call.</h2>
+      <div class="cta-right">
+        <p>15 minutes. Bring your coffee, I'll bring the questions. No pitch, no deck — just a conversation about your brand.</p>
+        <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-blue" style="font-size:15px;padding:16px 36px;">Book a call → ☕</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-name">Maria Britze</div>
+      <div class="foot-meta">Omnisend Partner · Slow Food 🐌 · Organic · Biodynamic<br>Bologna, Italy · maria@global-readership.com · linkedin.com/in/mariabritze</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function loadVid(){
+  var w=document.getElementById('vwrap');
+  w.onclick=null;w.style.cursor='default';
+  w.innerHTML='<iframe src="https://www.youtube.com/embed/Pq6ccYjXwnk?autoplay=1&rel=0" allow="autoplay;encrypted-media" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none"></iframe>';
+}
+function tFaq(btn){
+  var item=btn.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.fi').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen) item.classList.add('open');
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
