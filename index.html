@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Britze — Agrifood Marketing</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --yellow:  #E8E3D5;
@@ -57,6 +58,15 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
 .btn-blue:hover{background:var(--white);box-shadow:0 8px 32px rgba(14,13,11,.25)}
 .btn-outline-blue{background:transparent;color:var(--ink);border:2px solid var(--ink)}
 .btn-outline-blue:hover{background:var(--ink);color:var(--cream)}
+.btn-roadmap{background:var(--yellow);color:var(--ink);border:2px solid rgba(14,13,11,.15);position:relative;box-shadow:0 4px 20px rgba(14,13,11,.12)}
+.btn-roadmap:hover{background:var(--white);box-shadow:0 8px 32px rgba(14,13,11,.22)}
+.new-badge{display:inline-flex;align-items:center;font-family:var(--fm);font-size:8px;letter-spacing:.18em;text-transform:uppercase;background:#5C7A2E;color:#fff;padding:2px 6px;border-radius:2px;margin-left:6px;animation:glow 2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 4px rgba(92,122,46,.6),0 0 10px rgba(92,122,46,.3);opacity:1}50%{box-shadow:0 0 10px rgba(92,122,46,.9),0 0 20px rgba(92,122,46,.5);opacity:.85}}
+
+/* ROADMAP CTA IN PROCESS */
+.process-roadmap-cta{margin-top:48px;padding:28px 32px;background:var(--cream);border:1.5px solid rgba(10,8,32,.1);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.process-roadmap-cta p{font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;max-width:440px}
+.process-roadmap-cta p strong{color:var(--ink);font-weight:600}
 
 /* STATS BAR */
 .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cream);opacity:0;animation:fu .6s ease forwards .5s}
@@ -186,6 +196,11 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
 .aamt{font-family:var(--fd);font-size:42px;letter-spacing:.02em;color:var(--cream);white-space:nowrap}
 .aamt span{font-size:14px;color:var(--blue-md);font-family:var(--fm);letter-spacing:.1em}
 
+/* ── TESTIMONIALS ── */
+.tcard{background:var(--ink);overflow:hidden;position:relative}
+.tcard-video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#000}
+.tcard-label{font-family:var(--fm);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-md);padding:12px 16px;border-top:1px solid rgba(255,255,255,.06)}
+
 /* ── FAQ ── */
 .faq{padding:96px 0;background:var(--sand)}
 .flist{max-width:760px;margin:0 auto}
@@ -243,6 +258,7 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
       <div class="hero-cta-wrap">
         <a href="https://calendar.app.google/TyqBinASemmUPLE88" class="btn btn-y">☕ Book a free call</a>
         <a href="#process" class="btn btn-ghost">How it works</a>
+        <a href="roadmap.html" class="btn btn-roadmap">Steal my complete marketing roadmap <span class="new-badge">New</span></a>
       </div>
     </div>
   </div>
@@ -335,6 +351,10 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
       <div class="pstep reveal d3"><div class="pnum">04</div><div class="pcontent"><h3>Review &amp; Feedback</h3><p>You read everything before it goes out. One round of revisions included. Your voice stays yours.</p></div></div>
       <div class="pstep reveal d4"><div class="pnum">05</div><div class="pcontent"><h3>Launch &amp; Optimise</h3><p>We go live, track what's working, and adjust. The system sharpens over time — especially after each fair adds new contacts.</p></div></div>
     </div>
+    <div class="process-roadmap-cta reveal">
+      <p><strong>Curious about the full picture?</strong> I've mapped out the complete 12-month D2C + B2B system — quarter by quarter, channel by channel, with milestones built in.</p>
+      <a href="roadmap.html" class="btn btn-outline-blue" style="white-space:nowrap;flex-shrink:0;">Steal my complete marketing roadmap <span style="display:inline-block;font-family:var(--fm);font-size:8px;letter-spacing:.18em;text-transform:uppercase;background:#5C7A2E;color:#fff;padding:2px 6px;border-radius:2px;margin-left:6px;animation:glow 2s ease-in-out infinite">New</span></a>
+    </div>
   </div>
 </section>
 
@@ -351,6 +371,54 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
       <div class="voverlay">
         <div class="playbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <span class="vlbl">Watch the breakdown</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="padding:96px 0;background:var(--sand)">
+  <div class="container">
+    <div class="sh reveal">
+      <span class="label">Client Results</span>
+      <h2>The system<br>in numbers</h2>
+      <p>Results from founders across industries who built the same two-track model — LinkedIn presence + email lifecycle.</p>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px" class="reveal">
+      <!-- Each video card — swap src="..." with your hosted video URL or Vimeo embed URL -->
+      <div class="tcard">
+        <video class="tcard-video" controls preload="none" poster="">
+          <source src="Client_Result_-_Newsletter.mp4" type="video/mp4">
+        </video>
+        <div class="tcard-label">Newsletter · Email Revenue</div>
+      </div>
+      <div class="tcard">
+        <video class="tcard-video" controls preload="none" poster="">
+          <source src="Client_Result_-_Digital_Marketing_Agency.mp4" type="video/mp4">
+        </video>
+        <div class="tcard-label">Digital Marketing Agency</div>
+      </div>
+      <div class="tcard">
+        <video class="tcard-video" controls preload="none" poster="">
+          <source src="Client_Result_-_SaaS.mp4" type="video/mp4">
+        </video>
+        <div class="tcard-label">SaaS · B2B Growth</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px" class="reveal d2">
+      <div class="tcard">
+        <video class="tcard-video" controls preload="none" poster="">
+          <source src="Client_Result_-_Coach.mp4" type="video/mp4">
+        </video>
+        <div class="tcard-label">Coach · Audience Building</div>
+      </div>
+      <div class="tcard">
+        <video class="tcard-video" controls preload="none" poster="">
+          <source src="Client_Result_-_Ad_PPC_Expert.mp4" type="video/mp4">
+        </video>
+        <div class="tcard-label">Ad / PPC Expert</div>
       </div>
     </div>
   </div>
@@ -460,12 +528,12 @@ body{background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16p
   <div class="container">
     <div class="foot-inner">
       <div class="foot-name">Maria Britze</div>
-      <div class="foot-meta">Omnisend Partner · Slow Food 🐌 · Organic · Biodynamic<br>Bologna, Italy · maria@global-readership.com · linkedin.com/in/mariabritze</div>
+      <div class="foot-meta">Omnisend Partner · Slow Food 🐌 · Organic · Biodynamic<br>Bologna, Italy · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2cfc3d0cbc3e2c5cecdc0c3ce8fd0c7c3c6c7d0d1cacbd28cc1cdcf">[email&#160;protected]</a> · linkedin.com/in/mariabritze</div>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function loadVid(){
   var w=document.getElementById('vwrap');
   w.onclick=null;w.style.cursor='default';
@@ -481,7 +549,7 @@ var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
   });
-},{threshold:0.08});
+},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 </script>
 </body>
